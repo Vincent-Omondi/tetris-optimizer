@@ -15,14 +15,14 @@ const (
 
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Println("Usage:", os.Args[0], "<tetrominos_file.txt>")
-		os.Exit(1)
+		fmt.Println("Usage: go run . <tetrominos_file.txt>")
+		return
 	}
 
 	tetrominos, err := tetromino.ReadFromFile(os.Args[1])
 	if err != nil {
-		fmt.Printf("ERROR: %v\n", err)
-		os.Exit(1)
+		fmt.Println("ERROR")
+		return
 	}
 
 	size := int(math.Ceil(math.Sqrt(float64(len(tetrominos) * 4))))
@@ -35,5 +35,5 @@ func main() {
 		}
 		size++
 	}
-	fmt.Println("ERROR: no solution found")
+	fmt.Println("ERROR")
 }
