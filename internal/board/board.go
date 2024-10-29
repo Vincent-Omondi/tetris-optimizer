@@ -65,5 +65,4 @@ func Print(board Board) {
 		}
 		fmt.Println()
 	}
-	fmt.Println()
 }
